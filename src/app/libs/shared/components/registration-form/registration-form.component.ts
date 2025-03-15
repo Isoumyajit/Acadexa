@@ -13,16 +13,15 @@ import { userActionTypes } from '../../../../store/actions/user.action';
 import { User } from '../../models/user.model';
 
 @Component({
-  selector: 'app-registration-form',
-  standalone: true,
-  imports: [
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './registration-form.component.html',
-  styleUrl: './registration-form.component.scss',
+    selector: 'app-registration-form',
+    imports: [
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+    ],
+    templateUrl: './registration-form.component.html',
+    styleUrl: './registration-form.component.scss'
 })
 export class RegistrationFormComponent {
   registrationForm!: FormGroup;
