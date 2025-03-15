@@ -1,0 +1,34 @@
+.ama-registraion-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0;
+
+  .ama-registration-form-base {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    padding: 23px;
+    border: 2px solid #cfcfcf;
+    border-radius: 15px;
+
+    .ama-registration-form-field-container-name {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    .ama-registration-form-field-container-additional-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    .ama-registraion-form-container-functional-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: flex-end;
+    }
+  }
+}

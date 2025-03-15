@@ -1,0 +1,101 @@
+<div class="ama-registraion-form-container">
+  <div class="ama-registration-form-base">
+    <form class="ama-registration-form" [formGroup]="registrationForm">
+      <div class="ama-registration-form-field-container-name">
+        <mat-form-field class="ama-registration-form-field-firstname">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            placeholder="First Name"
+            required
+            formControlName="firstName"
+          />
+        </mat-form-field>
+        <mat-form-field class="ama-registration-form-field-lastname">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            placeholder="Last Name"
+            required
+            formControlName="lastName"
+          />
+        </mat-form-field>
+      </div>
+      <div class="ama-registration-form-field-container-additional-details">
+        <mat-form-field class="ama-registration-form-field-username">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            placeholder="Username"
+            required
+            formControlName="userName"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="ama-registration-form-field-email">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="Email"
+            required
+            formControlName="email"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="ama-registration-form-field-password">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            placeholder="Password"
+            required
+            formControlName="password"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="ama-registration-form-field-confirm-password">
+          <mat-label>Confirm Password</mat-label>
+          <input
+            matInput
+            placeholder="Confirm Password"
+            required
+            formControlName="confirmPassword"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="ama-registration-form-field-phone">
+          <mat-label>Phone</mat-label>
+          <input
+            matInput
+            placeholder="Phone"
+            required
+            formControlName="phone"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="ama-registraion-form-container-functional-buttons">
+        <button
+          mat-raised-button
+          color="warn"
+          class="ama-registration-form-reset-button"
+          (click)="onReset()"
+        >
+          Reset
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          class="ama-registration-form-submit-button"
+          (click)="onSubmit()"
+        >
+          Sign up
+        </button>
+      </div>
+    </form>
+    <div>
+      <span class="ama-registraion-form-login-info">
+        Do you have an account? <a href="#">Login</a>
+      </span>
+    </div>
+  </div>
+</div>
