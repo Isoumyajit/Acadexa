@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,20 +13,19 @@ import { userActionTypes } from '../../../../store/actions/user.action';
 import { User } from '../../models/user.model';
 
 @Component({
-    selector: 'app-registration-form',
-    imports: [
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        ReactiveFormsModule,
-    ],
-    templateUrl: './registration-form.component.html',
-    styleUrl: './registration-form.component.scss'
+  selector: 'app-registration-form',
+  standalone: true,
+  imports: [],
+  templateUrl: './registration-form.component.html',
+  styleUrl: './registration-form.component.scss',
 })
 export class RegistrationFormComponent {
   registrationForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private store: Store) {
+  constructor(
+    @Inject(FormBuilder) private formBuilder: FormBuilder,
+    private store: Store
+  ) {
     this.setFormValidators();
   }
 
