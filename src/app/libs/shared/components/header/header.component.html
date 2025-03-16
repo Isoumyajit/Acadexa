@@ -1,20 +1,10 @@
-<div>
-  <mat-toolbar color="primary">
-    <button mat-icon-button (click)="toggleSidebar.emit()">
-      <mat-icon>menu</mat-icon>
-    </button>
-
-    <span class="app-title">{{ appTitle }}</span>
-
-    <span class="spacer"></span>
-
-    <ng-container *ngIf="user$ | async as user">
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item disabled>{{ user.name }}</button>
-        <button mat-menu-item (click)="logout()">
-          <mat-icon>logout</mat-icon> Logout
-        </button>
-      </mat-menu>
-    </ng-container>
-  </mat-toolbar>
-</div>
+<mat-toolbar class="ama-header-container">
+  <div class="ama-header-base">
+    <div class="ama-header">
+      <mat-slide-toggle
+        #themeToggle
+        (change)="handleThemeChange(themeToggle)"
+      ></mat-slide-toggle>
+    </div>
+  </div>
+</mat-toolbar>

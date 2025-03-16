@@ -17,4 +17,11 @@ export class UserService {
   getUser(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:9090/user');
   }
+
+  authenticateUser(username: string, password: string): Observable<boolean> {
+    return this.http.post<boolean>(`http://localhost:9090/user/auth`, {
+      userName: username,
+      password: password,
+    });
+  }
 }

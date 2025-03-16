@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 0;
+  height: 90vh;
 
   .ama-registration-form-base {
     display: flex;
@@ -11,6 +11,8 @@
     border: 2px solid #cfcfcf;
     border-radius: 15px;
     box-shadow: 0px 0px 10px 0px #cfcfcf;
+    width: 446px;
+    margin-top: 200px;
 
     .ama-registration-form {
       display: flex;

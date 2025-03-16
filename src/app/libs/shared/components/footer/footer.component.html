@@ -1,1 +1,50 @@
-<p>footer works!</p>
+<mat-toolbar color="primary" class="footer">
+  <div class="footer-container">
+    <!-- Left: Company Info -->
+    <div class="footer-section footer-logo-section">
+      <img src="assets/logo.png" alt="Company Logo" class="footer-logo" />
+      <p>Your trusted partner for innovative solutions.</p>
+    </div>
+
+    <!-- Center: Quick Links -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a mat-button routerLink="/">Home</a></li>
+        <li><a mat-button routerLink="/about">About</a></li>
+        <li><a mat-button routerLink="/services">Services</a></li>
+        <li><a mat-button routerLink="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Right: Contact Info -->
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p><mat-icon>email</mat-icon> {{ "contact@company.com" }}</p>
+      <p><mat-icon>phone</mat-icon> +123 456 7890</p>
+      <p><mat-icon>location_on</mat-icon> 123 Street, City, Country</p>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#" target="_blank"><mat-icon>facebook</mat-icon></a>
+        <a href="#" target="_blank"><mat-icon>twitter</mat-icon></a>
+        <a href="#" target="_blank"><mat-icon>linkedin</mat-icon></a>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+
+<!-- Divider -->
+<mat-divider></mat-divider>
+
+<!-- Bottom Section -->
+<div class="footer-bottom">
+  <p>&copy; 2025 Your Company. All rights reserved.</p>
+  <div>
+    <a mat-button routerLink="/privacy-policy">Privacy Policy</a> |
+    <a mat-button routerLink="/terms">Terms of Service</a>
+  </div>
+</div>

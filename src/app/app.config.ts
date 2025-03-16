@@ -17,15 +17,12 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { InterceptorService } from './libs/shared/auth/interceptor.service';
 import { SnakbarEffect } from './store/effects/sideeffects/snakbar-effect.effect';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
-import {
-  validateHorizontalPosition,
-  validateVerticalPosition,
-} from '@angular/cdk/overlay';
+import { dashBoardRoutes } from './libs/shared/components/dashboard/dashboard.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
+    provideRouter([...routes, ...dashBoardRoutes]),
     provideAnimationsAsync(),
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,

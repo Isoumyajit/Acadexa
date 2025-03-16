@@ -14,6 +14,11 @@ export const DELETE_USER = createAction(
   (id: string) => ({ id })
 );
 
+export const USER_LOGIN_ACTION = createAction(
+  '[UseActions] AMA_APP User Login Action',
+  (username: string, password: string) => ({ username, password })
+);
+
 export const USER_CREATION_SUCCESS = createAction(
   '[UseActions] AMA_APP User Creation Success'
 );
@@ -27,6 +32,7 @@ export const userActionTypes = {
   CREATE_USER,
   UPDATE_USER,
   DELETE_USER,
+  USER_LOGIN_ACTION,
   USER_CREATION_SUCCESS,
   USER_CREATION_FAILURE,
 };

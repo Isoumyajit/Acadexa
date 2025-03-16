@@ -13,7 +13,7 @@ import {
 import { Store } from '@ngrx/store';
 import { userActionTypes } from '../../../../store/actions/user.action';
 import { User } from '../../models/user.model';
-import { HeaderComponent } from '../header/header.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-registration-form',
@@ -22,7 +22,7 @@ import { HeaderComponent } from '../header/header.component';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    HeaderComponent,
+    RouterModule,
   ],
   templateUrl: './registration-form.component.html',
   styleUrl: './registration-form.component.scss',

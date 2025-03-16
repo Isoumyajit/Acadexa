@@ -1,21 +1,33 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Store } from '@ngrx/store';
-import { MatMenuModule } from '@angular/material/menu';
+import {
+  MatSlideToggle,
+  MatSlideToggleModule,
+} from '@angular/material/slide-toggle';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { ThemeService } from '../../services/theme/theme.service';
 
 @Component({
   selector: 'app-header',
-  imports: [MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule],
+  imports: [
+    MatSlideToggleModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  @Input() appTitle: string = 'My App';
-  @Output() toggleSidebar = new EventEmitter<void>();
-
-  constructor(private store: Store) {}
-
+  constructor(private store: Store, private themeService: ThemeService) {}
+  handleThemeChange(event: MatSlideToggle) {
+    if (event.checked) {
+      this.themeService.toggleTheme('dark');
+    } else {
+      this.themeService.toggleTheme('light');
+    }
+  }
   logout() {}
 }

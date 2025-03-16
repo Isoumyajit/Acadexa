@@ -2,11 +2,11 @@
 @use "@angular/material" as mat;
 
 html {
+  color-scheme: light;
   @include mat.theme(
     (
       color: mat.$violet-palette,
       typography: Roboto,
-      theme-type: dark,
       density: 0,
     )
   );
@@ -19,5 +19,4 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  overflow-y: hidden;
 }
