@@ -10,6 +10,11 @@
             required
             formControlName="firstName"
           />
+          <mat-error>
+            @if (registrationForm.get('firstName').errors) {
+            {{ getValidationError("firstName") }}
+            }
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="ama-registration-form-field-lastname">
           <mat-label>Last Name</mat-label>
@@ -18,7 +23,11 @@
             placeholder="Last Name"
             required
             formControlName="lastName"
-          />
+          /><mat-error>
+            @if (registrationForm.get('lastName').errors) {
+            {{ getValidationError("lastName") }}
+            }
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="ama-registration-form-field-container-additional-details">
@@ -29,7 +38,11 @@
             placeholder="Username"
             required
             formControlName="userName"
-          />
+          /><mat-error>
+            @if (registrationForm.get('userName').errors) {
+            {{ getValidationError("userName") }}
+            }
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="ama-registration-form-field-email">
@@ -39,7 +52,11 @@
             placeholder="Email"
             required
             formControlName="email"
-          />
+          /><mat-error>
+            @if (registrationForm.get('email').errors) {
+            {{ getValidationError("email") }}
+            }
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="ama-registration-form-field-password">
@@ -49,7 +66,11 @@
             placeholder="Password"
             required
             formControlName="password"
-          />
+          /><mat-error>
+            @if (registrationForm.get('password').errors) {
+            {{ getValidationError("password") }}
+            }
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="ama-registration-form-field-confirm-password">
@@ -59,7 +80,11 @@
             placeholder="Confirm Password"
             required
             formControlName="confirmPassword"
-          />
+          /><mat-error>
+            @if (registrationForm.get('confirmPassword').errors) {
+            {{ getValidationError("confirmPassword") }}
+            }
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="ama-registration-form-field-phone">
@@ -69,7 +94,11 @@
             placeholder="Phone"
             required
             formControlName="phone"
-          />
+          /><mat-error>
+            @if (registrationForm.get('phone').errors) {
+            {{ getValidationError("phone") }}
+            }
+          </mat-error>
         </mat-form-field>
       </div>
 

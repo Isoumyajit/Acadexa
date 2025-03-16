@@ -19,7 +19,8 @@ export const USER_CREATION_SUCCESS = createAction(
 );
 
 export const USER_CREATION_FAILURE = createAction(
-  '[UseActions] AMA_APP User Creation Failure'
+  '[UseActions] AMA_APP User Creation Failure',
+  (error: Error) => ({ error })
 );
 
 export const userActionTypes = {

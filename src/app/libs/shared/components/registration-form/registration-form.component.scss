@@ -7,10 +7,16 @@
   .ama-registration-form-base {
     display: flex;
     flex-direction: column;
-    display: flex;
     padding: 23px;
     border: 2px solid #cfcfcf;
     border-radius: 15px;
+    box-shadow: 0px 0px 10px 0px #cfcfcf;
+
+    .ama-registration-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
 
     .ama-registration-form-field-container-name {
       display: flex;
