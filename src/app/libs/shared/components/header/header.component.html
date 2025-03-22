@@ -1,10 +1,17 @@
 <mat-toolbar class="ama-header-container">
-  <div class="ama-header-base">
-    <div class="ama-header">
-      <mat-slide-toggle
-        #themeToggle
-        (change)="handleThemeChange(themeToggle)"
-      ></mat-slide-toggle>
-    </div>
+  <div class="ama-header-right-container">
+    <span class="">{{ appName }}</span>
+  </div>
+  <div class="ama-header-left-container">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>{{ theme[1].icon }}</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      @for (icon of theme; track $index) {
+      <button mat-menu-item (click)="handleThemeChange(icon.icon)">
+        <mat-icon fontIcon="{{ icon.icon }}"></mat-icon>
+      </button>
+      }
+    </mat-menu>
   </div>
 </mat-toolbar>

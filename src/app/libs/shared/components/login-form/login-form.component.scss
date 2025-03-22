@@ -1,7 +1,8 @@
 .ama-sign-in-form-container {
   display: flex;
   justify-content: center;
-  height: 98.5vh;
+  background-color: var(--mat-sys-background);
+  justify-content: center;
 
   .ama-sign-in-form-base {
     margin-top: 200px;
@@ -11,7 +12,6 @@
     padding: 23px;
     border: 2px solid #cfcfcf;
     border-radius: 15px;
-    box-shadow: 0px 0px 10px 0px #cfcfcf;
     height: min-content;
     gap: 10px;
 
