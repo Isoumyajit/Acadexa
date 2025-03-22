@@ -7,7 +7,7 @@ export class ThemeService {
   constructor() {}
 
   toggleTheme(theme: string) {
-    document.body.classList.remove('dark', 'light');
+    document.body.classList.remove('dark_mode', 'light_mode');
     document.body.classList.add(theme);
   }
 }
