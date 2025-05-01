@@ -1,0 +1,43 @@
+<div class="ama-left-sidenav-container">
+  <button
+    mat-icon-button
+    (click)="toggleSidenav()"
+    class="acadexa-primary-icon-button"
+    aria-label="Toggle sidenav"
+  >
+    <mat-icon>{{ sidenavOpen ? "menu_open" : "menu" }}</mat-icon>
+  </button>
+
+  <div class="acadexa-ama-header-main-list">
+    <div class="acadexa-ama-header-options">
+      @for (option of headerOptions; track $index) {
+      <button
+        mat-icon-button
+        (click)="handleHeaderOptionClick(option)"
+        class="acadexa-primary-icon-button"
+        [matTooltip]="option.title"
+      >
+        <mat-icon
+          fontIcon="{{ option.icon }}"
+          class="acadexa-primary-icon-button-icon"
+        ></mat-icon>
+      </button>
+      }
+    </div>
+    <div class="acadexa-ama-settings-options">
+      @for (settingsOption of headerSettingsOptions; track $index) {
+      <button
+        mat-icon-button
+        (click)="handleSettingsOptionClick(settingsOption)"
+        class="acadexa-primary-icon-button"
+        [matTooltip]="settingsOption.title"
+      >
+        <mat-icon
+          fontIcon="{{ settingsOption.icon }}"
+          class="acadexa-primary-icon-button-icon"
+        ></mat-icon>
+      </button>
+      }
+    </div>
+  </div>
+</div>
