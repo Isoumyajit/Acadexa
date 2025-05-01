@@ -2,10 +2,7 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Store } from '@ngrx/store';
-import {
-  MatSlideToggle,
-  MatSlideToggleModule,
-} from '@angular/material/slide-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ThemeService } from '../../services/theme/theme.service';
 import { APP_NAME, APP_THEME } from '../../constants/constants';
