@@ -1,7 +1,10 @@
 .ama-header-container {
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   z-index: 1000;
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
 }

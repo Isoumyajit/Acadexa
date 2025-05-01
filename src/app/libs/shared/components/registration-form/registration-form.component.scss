@@ -1,42 +1,61 @@
-.ama-registraion-form-container {
+.ama-registration-main-container {
+  width: 75%;
+  height: 60vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background-color: var(--mat-sys-background);
-  height: 100vh;
+  margin: 10%;
+  border: 2px solid #e0e0e0;
+  padding-left: 5%;
+  border-radius: 10px;
 
-  .ama-registration-form-base {
+  .ama-registration-right-image {
+    width: 50%;
+    height: 100%;
+    .signup-right-image {
+      max-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+  .ama-registraion-form-container {
     display: flex;
     flex-direction: column;
-    padding: 23px;
-    border: 2px solid #cfcfcf;
-    border-radius: 15px;
-    width: 446px;
-    margin-top: 1em;
+    gap: 1%;
 
-    .ama-registration-form {
+    .ama-registration-form-base {
+      display: flex;
       display: flex;
       flex-direction: column;
-      gap: 15px;
-    }
-
-    .ama-registration-form-field-container-name {
-      display: flex;
-      gap: 20px;
       justify-content: space-between;
-    }
+      min-width: 35%;
 
-    .ama-registration-form-field-container-additional-details {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      justify-content: space-between;
-    }
+      .ama-registration-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
 
-    .ama-registraion-form-container-functional-buttons {
-      display: flex;
-      gap: 20px;
-      justify-content: flex-end;
+      .ama-registration-form-field-container-name {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+      }
+
+      .ama-registration-form-field-container-additional-details {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: space-between;
+      }
+
+      .ama-registraion-form-container-functional-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: flex-end;
+      }
     }
   }
 }

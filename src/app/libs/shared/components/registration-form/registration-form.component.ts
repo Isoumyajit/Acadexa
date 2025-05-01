@@ -94,14 +94,8 @@ export class RegistrationFormComponent {
   }
 
   onReset(): void {
-    this.registrationForm.reset();
-    this.registrationForm.get('confirmPassword')?.setErrors(null);
-    this.registrationForm.get('password')?.setErrors(null);
-    this.registrationForm.get('firstName')?.setErrors(null);
-    this.registrationForm.get('lastName')?.setErrors(null);
-    this.registrationForm.get('email')?.setErrors(null);
-    this.registrationForm.get('userName')?.setErrors(null);
-    this.registrationForm.get('phone')?.setErrors(null);
+    this.registrationForm.reset(this.registrationForm.value);
+    this.registrationForm.parent.markAsPristine();
   }
 
   getValidationError(controlName: string): string {

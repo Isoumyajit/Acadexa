@@ -23,15 +23,28 @@
         theme-type: light,
       ),
       typography: Roboto,
-    )
+    ),
+    $overrides: ("surface": rgba(225, 246, 255, 0.949))
   );
-}
-
-html,
-body {
-  height: 100%;
 }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  .acadexa-primary-button {
+    background-color: #0078d4;
+    color: white !important;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .acadexa-secondary-button {
+    background-color: #f3f2f1;
+    color: #323130 !important;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
 }

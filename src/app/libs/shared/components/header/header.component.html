@@ -1,4 +1,4 @@
-<mat-toolbar class="ama-header-container">
+<mat-toolbar class="ama-header-container" [color]="'azure'">
   <div class="ama-header-right-container">
     <span class="">{{ appName }}</span>
   </div>
@@ -13,5 +13,8 @@
       </button>
       }
     </mat-menu>
+    <button mat-icon-button>
+      <mat-icon fontIcon="manage_accounts"></mat-icon>
+    </button>
   </div>
 </mat-toolbar>

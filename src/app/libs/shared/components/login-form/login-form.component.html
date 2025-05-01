@@ -1,54 +1,58 @@
-<div class="ama-sign-in-form-container">
-  <div class="ama-sign-in-form-base">
-    <form class="ama-sign-in-form" [formGroup]="logInForm">
-      <mat-form-field class="ama-sign-in-form-field-username">
-        <mat-label>Username</mat-label>
-        <input
-          matInput
-          placeholder="Username"
-          type="text"
-          formControlName="userName"
-          [(ngModel)]="userName"
-          required
-        />
-        <mat-error>
-          @if(logInForm.get('userName').errors) {
-          {{ getErrorMessage("userName") }} }
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="ama-sign-in-form-field-password">
-        <mat-label>Password</mat-label>
-        <input
-          matInput
-          placeholder="Password"
-          type="password"
-          formControlName="password"
-          [(ngModel)]="password"
-          required
-        />
-        <mat-error>
-          @if(logInForm.get('password').errors) {
-          {{ getErrorMessage("password") }} }
-        </mat-error>
-      </mat-form-field>
+<div class="ama-sign-in-form-main-container">
+  <div class="ama-sign-in-form-container">
+    <div class="ama-sign-in-form-base">
+      <form class="ama-sign-in-form" [formGroup]="logInForm">
+        <mat-form-field class="ama-sign-in-form-field-username">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            placeholder="Username"
+            type="text"
+            formControlName="userName"
+            [(ngModel)]="userName"
+            required
+          />
+          <mat-error>
+            @if(logInForm.get('userName').errors) {
+            {{ getErrorMessage("userName") }} }
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="ama-sign-in-form-field-password">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            placeholder="Password"
+            type="password"
+            formControlName="password"
+            [(ngModel)]="password"
+            required
+          />
+          <mat-error>
+            @if(logInForm.get('password').errors) {
+            {{ getErrorMessage("password") }}}
+          </mat-error>
+        </mat-form-field>
 
-      <div class="ama-sign-in-form-fild-action-buttons">
-        <button
-          mat-raised-button
-          color="primary"
-          class="ama-sign-in-form-button"
-          type="submit"
-          (click)="onSubmit()"
-        >
-          {{ "Sign In" }}
-        </button>
+        <div class="ama-sign-in-form-fild-action-buttons">
+          <button
+            mat-button
+            class="acadexa-primary-button"
+            type="submit"
+            (click)="onSubmit()"
+          >
+            {{ "Sign In" }}
+          </button>
+        </div>
+      </form>
+
+      <div class="ama-log-in-form-reg-info-container">
+        <span class="ama-log-in-form-reg-info">
+          Don't have an account? <a [routerLink]="['/registration']">SignUp</a>
+        </span>
       </div>
-    </form>
-
-    <div class="ama-log-in-form-reg-info-container">
-      <span class="ama-log-in-form-reg-info">
-        Don't have an account? <a [routerLink]="['/registration']">SignUp</a>
-      </span>
     </div>
+  </div>
+  <div class="ama-sign-in-right-image">
+    <img src="assets/img/loginright.webp" alt="image" class="login-image" />
   </div>
 </div>
