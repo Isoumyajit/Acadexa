@@ -8,7 +8,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
-import { provideStore } from '@ngrx/store';
+import { provideState, provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideRouterStore } from '@ngrx/router-store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
@@ -18,6 +18,7 @@ import { InterceptorService } from './libs/shared/auth/interceptor.service';
 import { SnakbarEffect } from './store/effects/sideeffects/snakbar-effect.effect';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { dashBoardRoutes } from './libs/shared/components/dashboard/dashboard.routes';
+import { userReducer } from './store/reducers/user.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -38,6 +39,10 @@ export const appConfig: ApplicationConfig = {
     },
     provideHttpClient(withInterceptors([InterceptorService])),
     provideStore(),
+    provideState({
+      name: 'user',
+      reducer: userReducer,
+    }),
     provideEffects(UserServiceEffects, SnakbarEffect),
     provideRouterStore(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),

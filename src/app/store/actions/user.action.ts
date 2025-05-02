@@ -1,31 +1,41 @@
 import { createAction } from '@ngrx/store';
 import { User } from '../../libs/shared/models/user.model';
 
-export const CREATE_USER = createAction(
+const CREATE_USER = createAction(
   '[UseActions] AMA_APP Create User',
   (userData: Partial<User>) => ({ userData })
 );
-export const UPDATE_USER = createAction(
+const UPDATE_USER = createAction(
   '[UseActions] AMA_APP Update User',
   (userData: User) => ({ userData })
 );
-export const DELETE_USER = createAction(
+const DELETE_USER = createAction(
   '[UseActions] AMA_APP Delete User',
   (id: string) => ({ id })
 );
 
-export const USER_LOGIN_ACTION = createAction(
+const USER_LOGIN_ACTION = createAction(
   '[UseActions] AMA_APP User Login Action',
   (username: string, password: string) => ({ username, password })
 );
 
-export const USER_CREATION_SUCCESS = createAction(
+const USER_CREATION_SUCCESS = createAction(
   '[UseActions] AMA_APP User Creation Success'
 );
 
-export const USER_CREATION_FAILURE = createAction(
+const USER_CREATION_FAILURE = createAction(
   '[UseActions] AMA_APP User Creation Failure',
   (error: Error) => ({ error })
+);
+
+const USER_LOGIN_ACTION_SUCCESS = createAction(
+  '[UseActions] AMA_APP User Login Action Success',
+  (user: string) => ({ user })
+);
+
+const USER_SAVE_STATE_ACTION = createAction(
+  '[UseActions] AMA_APP User Save State Action',
+  (user: User) => ({ user })
 );
 
 export const userActionTypes = {
@@ -35,4 +45,6 @@ export const userActionTypes = {
   USER_LOGIN_ACTION,
   USER_CREATION_SUCCESS,
   USER_CREATION_FAILURE,
+  USER_LOGIN_ACTION_SUCCESS,
+  USER_SAVE_STATE_ACTION,
 };

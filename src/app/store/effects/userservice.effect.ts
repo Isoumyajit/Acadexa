@@ -34,7 +34,7 @@ export class UserServiceEffects {
     { dispatch: false }
   );
 
-  getUser$ = createEffect(
+  authenticateUser$ = createEffect(
     () =>
       this.action$.pipe(
         ofType(userActionTypes.USER_LOGIN_ACTION),
@@ -44,6 +44,9 @@ export class UserServiceEffects {
             .pipe(
               map((isAuthenticated: boolean) => {
                 if (isAuthenticated) {
+                  this.store.dispatch(
+                    userActionTypes.USER_LOGIN_ACTION_SUCCESS(action.username)
+                  );
                   this.router.navigate(['/dashboard']);
                 } else {
                   console.log('User not authenticated');
@@ -55,6 +58,28 @@ export class UserServiceEffects {
                 return EMPTY;
               })
             )
+        )
+      ),
+    { dispatch: false }
+  );
+
+  getUser$ = createEffect(
+    () =>
+      this.action$.pipe(
+        ofType(userActionTypes.USER_LOGIN_ACTION_SUCCESS),
+        exhaustMap((action: any) =>
+          this.userService.getUser(action.user).pipe(
+            map((user: User) => {
+              this.store.dispatch(
+                userActionTypes.USER_SAVE_STATE_ACTION(user[0])
+              );
+              return EMPTY;
+            }),
+            catchError((error: Error) => {
+              console.log('Error in getting user data', error);
+              return EMPTY;
+            })
+          )
         )
       ),
     { dispatch: false }
