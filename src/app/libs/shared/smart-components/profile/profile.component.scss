@@ -1,0 +1,41 @@
+.ama-profile-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 85%;
+  min-height: 80%;
+
+  .acadexa-profile-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    .acadexa-profile-info-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      min-width: 35%;
+    }
+  }
+}
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 200, "opsz" 48;
+}
+.acadexa-profile-img {
+  .acadexa-profile-img-button {
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    .profile-icon {
+      margin-right: 55%;
+      margin-top: 5%;
+      font-size: 3em;
+      overflow: unset;
+    }
+  }
+}

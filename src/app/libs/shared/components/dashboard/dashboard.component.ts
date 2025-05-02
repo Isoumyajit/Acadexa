@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { SidenavComponent } from '../sidenav/sidenav.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [SidenavComponent],
+  imports: [SidenavComponent, RouterModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
