@@ -10,6 +10,7 @@ import {
   HEADER_SETTINGS_OPTIONS,
 } from '../../constants/constants';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -27,9 +28,25 @@ export class SidenavComponent {
   sidenavOpen = false;
   headerOptions: HEADER_OPTION[] = HEADER_OPTIONS;
   headerSettingsOptions: HEADER_SETTINGS_OPTION[] = HEADER_SETTINGS_OPTIONS;
+
+  constructor(private router: Router) {}
+
   toggleSidenav() {
     this.sidenavOpen = !this.sidenavOpen;
   }
   handleHeaderOptionClick(option: HEADER_OPTION) {}
-  handleSettingsOptionClick(option: HEADER_SETTINGS_OPTION) {}
+
+  handleSettingsOptionClick(option: HEADER_SETTINGS_OPTION) {
+    const optionItem = option.title;
+    switch (optionItem) {
+      case HEADER_SETTINGS_OPTIONS[1].title: // Profile
+        // Handle profile option click
+        this.handleProfileClick();
+        break;
+    }
+  }
+
+  handleProfileClick() {
+    this.router.navigate(['dashboard/profile']);
+  }
 }

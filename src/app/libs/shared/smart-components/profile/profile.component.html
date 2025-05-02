@@ -1,12 +1,37 @@
 <div class="ama-profile-container">
-  <div class="ama-profile-base">
-    <div class="ama-profile-image">
-      <img [src]="profileImage" alt="Profile Image" />
+  <div class="acadexa-profile-main">
+    <div class="acadexa-profile-img">
+      <button mat-icon-button class="acadexa-profile-img-button">
+        <mat-icon class="profile-icon"> account_circle </mat-icon>
+      </button>
     </div>
-    <div class="ama-profile-details">
-      <div class="ama-profile-name">{{ profileName }}</div>
-      <div class="ama-profile-email">{{ profileEmail }}</div>
-      <div class="ama-profile-phone">{{ profilePhone }}</div>
-    </div>
+    <form class="acadexa-profile-info-form">
+      <mat-form-field class="acadexa-input">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" required formControlName="name" />
+      </mat-form-field>
+      <mat-form-field class="acadexa-input">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" required formControlName="email" />
+      </mat-form-field>
+      <mat-form-field class="acadexa-input">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          placeholder="Username"
+          required
+          formControlName="username"
+        />
+      </mat-form-field>
+      <mat-form-field class="acadexa-input">
+        <mat-label>School</mat-label>
+        <input
+          matInput
+          placeholder="School"
+          required
+          formControlName="school"
+        />
+      </mat-form-field>
+    </form>
   </div>
 </div>

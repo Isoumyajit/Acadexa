@@ -8,6 +8,8 @@
   border-right: 1px solid #ccc;
   align-items: center;
   gap: 2rem;
+  z-index: 1000;
+  position: fixed;
 
   .acadexa-ama-header-main-list {
     display: flex;
