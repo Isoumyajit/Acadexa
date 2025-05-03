@@ -84,4 +84,24 @@ export class UserServiceEffects {
       ),
     { dispatch: false }
   );
+
+  updateUser$ = createEffect(
+    () =>
+      this.action$.pipe(
+        ofType(userActionTypes.UPDATE_USER),
+        exhaustMap((action: any) =>
+          this.userService.updateUser(action.userData).pipe(
+            map((user: User) => {
+              this.store.dispatch(userActionTypes.UPDATE_USER_SUCCESS(user));
+              return EMPTY;
+            }),
+            catchError((error: Error) => {
+              this.store.dispatch(userActionTypes.UPDATE_USER_FAILURE(error));
+              return EMPTY;
+            })
+          )
+        )
+      ),
+    { dispatch: false }
+  );
 }

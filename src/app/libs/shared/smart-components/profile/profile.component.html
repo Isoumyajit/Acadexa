@@ -5,33 +5,77 @@
         <mat-icon class="profile-icon"> account_circle </mat-icon>
       </button>
     </div>
-    <form class="acadexa-profile-info-form">
-      <mat-form-field class="acadexa-input">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Name" required formControlName="name" />
-      </mat-form-field>
+    <form class="acadexa-profile-info-form" [formGroup]="profileForm">
+      <div class="acadexa-inside-form-name-section">
+        <mat-form-field class="acadexa-input">
+          <mat-label>First name</mat-label>
+          <input
+            matInput
+            placeholder="First name"
+            formControlName="firstname"
+            [value]="(userDetails$ | async)?.firstName"
+            [disabled]="true"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="acadexa-input">
+          <mat-label>Last name</mat-label>
+          <input
+            matInput
+            placeholder="First name"
+            formControlName="lastname"
+            [value]="(userDetails$ | async)?.lastName"
+            [disabled]="true"
+          />
+        </mat-form-field>
+      </div>
       <mat-form-field class="acadexa-input">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="Email" required formControlName="email" />
+        <input
+          matInput
+          placeholder="Email"
+          formControlName="email"
+          [disabled]="true"
+          [value]="(userDetails$ | async)?.email"
+        />
       </mat-form-field>
       <mat-form-field class="acadexa-input">
         <mat-label>Username</mat-label>
         <input
           matInput
           placeholder="Username"
-          required
           formControlName="username"
+          [value]="(userDetails$ | async)?.userName"
         />
       </mat-form-field>
       <mat-form-field class="acadexa-input">
-        <mat-label>School</mat-label>
+        <mat-label>Phone number</mat-label>
         <input
           matInput
-          placeholder="School"
-          required
-          formControlName="school"
+          placeholder="Phone Number"
+          [value]="(userDetails$ | async)?.phone"
+          formControlName="phone"
         />
       </mat-form-field>
     </form>
+  </div>
+
+  <div class="acadexa-profile-functional-btns">
+    <button
+      *ngIf="isDisabled"
+      mat-button
+      class="acadexa-secondary-button"
+      (click)="toggleEdit()"
+    >
+      <span>Edit</span>
+    </button>
+    <button
+      *ngIf="!isDisabled"
+      mat-button
+      class="acadexa-primary-button"
+      (click)="saveChanges()"
+    >
+      <span>Save</span>
+    </button>
   </div>
 </div>
