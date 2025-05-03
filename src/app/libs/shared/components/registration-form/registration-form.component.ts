@@ -48,14 +48,6 @@ export class RegistrationFormComponent {
         userName: ['', [Validators.required]],
         password: ['', [Validators.required, Validators.minLength(8)]],
         confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
-        phone: [
-          '',
-          [
-            Validators.required,
-            Validators.minLength(10),
-            Validators.maxLength(10),
-          ],
-        ],
       },
       {
         validator: this.passwordMatchValidator,
@@ -75,6 +67,7 @@ export class RegistrationFormComponent {
   }
 
   onSubmit(): void {
+    console.log(this.registrationForm.value);
     if (this.registrationForm.invalid) {
       return;
     } else {
@@ -133,14 +126,6 @@ export class RegistrationFormComponent {
           ? 'Confirm Password should be minimum 8 characters'
           : this.registrationForm.get('confirmPassword')?.hasError('notMatched')
           ? 'Password and Confirm Password should match'
-          : '';
-      case 'phone':
-        return this.registrationForm.get('phone')?.hasError('required')
-          ? 'Phone is required'
-          : this.registrationForm.get('phone')?.hasError('minlength')
-          ? 'Phone should be 10 digits'
-          : this.registrationForm.get('phone')?.hasError('maxlength')
-          ? 'Phone should be 10 digits'
           : '';
       default:
         return '';

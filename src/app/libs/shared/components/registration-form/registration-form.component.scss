@@ -24,13 +24,13 @@
     display: flex;
     flex-direction: column;
     gap: 1%;
+    width: 40%;
 
     .ama-registration-form-base {
       display: flex;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-width: 35%;
 
       .ama-registration-form {
         display: flex;
@@ -40,14 +40,16 @@
 
       .ama-registration-form-field-container-name {
         display: flex;
-        gap: 20px;
-        justify-content: space-between;
+        gap: 2em;
+        .mat-mdc-form-field {
+          width: 55%;
+        }
       }
 
       .ama-registration-form-field-container-additional-details {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 0.5em;
         justify-content: space-between;
       }
 

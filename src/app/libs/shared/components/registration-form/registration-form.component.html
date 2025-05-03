@@ -32,6 +32,19 @@
           </mat-form-field>
         </div>
         <div class="ama-registration-form-field-container-additional-details">
+          <mat-form-field class="ama-registration-form-field-username">
+            <mat-label>Username</mat-label>
+            <input
+              matInput
+              placeholder="Email"
+              required
+              formControlName="userName"
+            /><mat-error>
+              @if (registrationForm.get('userName').errors) {
+              {{ getValidationError("userName") }}
+              }
+            </mat-error>
+          </mat-form-field>
           <mat-form-field class="ama-registration-form-field-email">
             <mat-label>Email</mat-label>
             <input
