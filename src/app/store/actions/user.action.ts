@@ -7,7 +7,15 @@ const CREATE_USER = createAction(
 );
 const UPDATE_USER = createAction(
   '[UseActions] AMA_APP Update User',
-  (userData: User) => ({ userData })
+  (userData: Partial<User>) => ({ userData })
+);
+const UPDATE_USER_SUCCESS = createAction(
+  '[UseActions] AMA_APP Update User Success',
+  (userData: Partial<User>) => ({ userData })
+);
+const UPDATE_USER_FAILURE = createAction(
+  '[UseActions] AMA_APP Update User Failure',
+  (error: Error) => ({ error })
 );
 const DELETE_USER = createAction(
   '[UseActions] AMA_APP Delete User',
@@ -47,4 +55,6 @@ export const userActionTypes = {
   USER_CREATION_FAILURE,
   USER_LOGIN_ACTION_SUCCESS,
   USER_SAVE_STATE_ACTION,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAILURE,
 };

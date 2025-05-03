@@ -19,6 +19,7 @@ import { SnakbarEffect } from './store/effects/sideeffects/snakbar-effect.effect
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { dashBoardRoutes } from './libs/shared/components/dashboard/dashboard.routes';
 import { userReducer } from './store/reducers/user.reducer';
+import { Reducers } from './store/state/appstate.state';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -38,11 +39,8 @@ export const appConfig: ApplicationConfig = {
       },
     },
     provideHttpClient(withInterceptors([InterceptorService])),
-    provideStore(),
-    provideState({
-      name: 'user',
-      reducer: userReducer,
-    }),
+    provideStore(Reducers),
+    provideState({ name: 'user', reducer: userReducer }),
     provideEffects(UserServiceEffects, SnakbarEffect),
     provideRouterStore(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
