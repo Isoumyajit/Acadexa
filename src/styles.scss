@@ -19,7 +19,7 @@
   @include mat.theme(
     (
       color: (
-        primary: mat.$azure-palette,
+        primary: mat.$violet-palette,
         theme-type: light,
       ),
       typography: Roboto,
@@ -67,5 +67,9 @@ body {
 
   .acadexa-input {
     width: 100%;
+  }
+
+  .acadexa-sidenav-icon-buttons {
+    state-layer-size: 36px;
   }
 }

@@ -1,11 +1,18 @@
 <div class="ama-profile-container">
   <div class="acadexa-profile-main">
-    <div class="acadexa-profile-img">
+    <h1 class="acadexa-profime-heading">
+      {{ "Your Profile" }}
+    </h1>
+    <div class="acadexa-profile-img" [matTooltip]="'Profile picture'">
       <button mat-icon-button class="acadexa-profile-img-button">
         <mat-icon class="profile-icon"> account_circle </mat-icon>
       </button>
     </div>
     <form class="acadexa-profile-info-form" [formGroup]="profileForm">
+      <mat-form-field class="acadexa-input">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" formControlName="userName" />
+      </mat-form-field>
       <div class="acadexa-inside-form-name-section">
         <mat-form-field class="acadexa-input">
           <mat-label>First name</mat-label>
@@ -25,13 +32,30 @@
         <mat-label>Email</mat-label>
         <input matInput placeholder="Email" formControlName="email" />
       </mat-form-field>
-      <mat-form-field class="acadexa-input">
-        <mat-label>Username</mat-label>
-        <input matInput placeholder="Username" formControlName="userName" />
-      </mat-form-field>
+
       <mat-form-field class="acadexa-input">
         <mat-label>Phone number</mat-label>
         <input matInput placeholder="Phone number" formControlName="phone" />
+        <mat-error *ngIf="profileForm.get('phone').errors">
+          {{ getErrorMessage("phone") }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-divider class="acadexa-form-divider"></mat-divider>
+
+      <h4>{{ "Additional Details" }}</h4>
+      <mat-form-field class="acadexa-input">
+        <mat-label>School</mat-label>
+        <input matInput placeholder="School" formControlName="school" />
+      </mat-form-field>
+
+      <mat-form-field class="acadexa-input">
+        <mat-label>Preparing for</mat-label>
+        <mat-select multiple formControlName="target">
+          @for (exam of exams; track exam.id) {
+          <mat-option [value]="exam.name">{{ exam.name }}</mat-option>
+          }
+        </mat-select>
       </mat-form-field>
     </form>
   </div>

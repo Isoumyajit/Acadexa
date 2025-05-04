@@ -1,3 +1,5 @@
+import { Exam } from '../models/exams.model';
+
 export const APP_NAME = 'Acadexa';
 export const APP_THEME = [
   {
@@ -47,5 +49,16 @@ export const HEADER_OPTIONS: HEADER_OPTION[] = [
     icon: 'smart_toy',
     title: 'Ask AI',
     route: '/ask-ai',
+  },
+];
+
+export const EXAMS: Exam[] = [
+  {
+    id: 1,
+    name: 'JEE',
+  },
+  {
+    id: 2,
+    name: 'NEET',
   },
 ];
