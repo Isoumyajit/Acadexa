@@ -25,7 +25,11 @@ export class UserService {
     });
   }
 
-  updateUser(userData: Partial<User>): Observable<User> {
-    return this.http.put<User>(`http://localhost:9090/user/`, userData);
+  updateUser(userData: Partial<User>, userEmail: string): Observable<User> {
+    console.log(userData);
+    return this.http.put<User>(
+      `http://localhost:9090/user/${userEmail}`,
+      userData
+    );
   }
 }

@@ -1,11 +1,12 @@
-import { act, Actions, createEffect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { UserService } from '../../libs/shared/services/user/user.service';
 import { userActionTypes } from '../actions/user.action';
-import { catchError, EMPTY, exhaustMap, map, of } from 'rxjs';
+import { catchError, EMPTY, exhaustMap, map, of, withLatestFrom } from 'rxjs';
 import { User } from '../../libs/shared/models/user.model';
 import { inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
+import { userDemographicDetails } from '../selectors/userdetails.selector';
 
 @Injectable()
 export class UserServiceEffects {
@@ -89,8 +90,9 @@ export class UserServiceEffects {
     () =>
       this.action$.pipe(
         ofType(userActionTypes.UPDATE_USER),
-        exhaustMap((action: any) =>
-          this.userService.updateUser(action.userData).pipe(
+        withLatestFrom(this.store.select(userDemographicDetails)),
+        exhaustMap(([action, userDetails]) =>
+          this.userService.updateUser(action.userData, userDetails.email).pipe(
             map((user: User) => {
               this.store.dispatch(userActionTypes.UPDATE_USER_SUCCESS(user));
               return EMPTY;

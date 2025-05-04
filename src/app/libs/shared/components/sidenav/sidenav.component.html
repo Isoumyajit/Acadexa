@@ -14,12 +14,12 @@
       <button
         mat-icon-button
         (click)="handleHeaderOptionClick(option)"
-        class="acadexa-primary-icon-button"
+        class="acadexa-primary-icon-button acadexa-sidenav-icon-buttons"
         [matTooltip]="option.title"
       >
         <mat-icon
+          class="material-icons md-48"
           fontIcon="{{ option.icon }}"
-          class="acadexa-primary-icon-button-icon"
         ></mat-icon>
       </button>
       }
@@ -29,13 +29,10 @@
       <button
         mat-icon-button
         (click)="handleSettingsOptionClick(settingsOption)"
-        class="acadexa-primary-icon-button"
+        class="acadexa-primary-icon-button acadexa-sidenav-icon-buttons"
         [matTooltip]="settingsOption.title"
       >
-        <mat-icon
-          fontIcon="{{ settingsOption.icon }}"
-          class="acadexa-primary-icon-button-icon"
-        ></mat-icon>
+        <span class="material-icons md-48">{{ settingsOption.icon }}</span>
       </button>
       }
     </div>
