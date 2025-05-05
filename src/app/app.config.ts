@@ -4,11 +4,10 @@ import {
   isDevMode,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
-import { provideState, provideStore } from '@ngrx/store';
+import { MetaReducer, provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideRouterStore } from '@ngrx/router-store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
@@ -18,9 +17,16 @@ import { InterceptorService } from './libs/shared/auth/interceptor.service';
 import { SnakbarEffect } from './store/effects/sideeffects/snakbar-effect.effect';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { dashBoardRoutes } from './libs/shared/components/dashboard/dashboard.routes';
-import { userReducer } from './store/reducers/user.reducer';
-import { Reducers } from './store/state/appstate.state';
+import { reducers } from './store/reducers/app.reducer';
+import {
+  clearState,
+  localStorageSyncReducer,
+} from './store/reducers/meta.reducer';
 
+export const metaReducers: MetaReducer[] = [
+  localStorageSyncReducer,
+  clearState,
+];
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
@@ -39,8 +45,7 @@ export const appConfig: ApplicationConfig = {
       },
     },
     provideHttpClient(withInterceptors([InterceptorService])),
-    provideStore(Reducers),
-    provideState({ name: 'user', reducer: userReducer }),
+    provideStore(reducers, { metaReducers }),
     provideEffects(UserServiceEffects, SnakbarEffect),
     provideRouterStore(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
