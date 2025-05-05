@@ -1,10 +1,19 @@
 import { createReducer, on } from '@ngrx/store';
-import { User } from '../../libs/shared/models/user.model';
 import { userActionTypes } from '../actions/user.action';
 
-export const initialUserState: Partial<User> = {
+export const reducerKey = 'user';
+export interface UserState {
+  email?: string;
+  role?: string;
+  enabled?: boolean;
+  imageUrl?: string;
+  userName?: string;
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
+}
+export const initialUserState: UserState = {
   email: '',
-  password: '',
   role: '',
   enabled: false,
   imageUrl: '',
@@ -13,7 +22,6 @@ export const initialUserState: Partial<User> = {
   lastName: '',
   phone: '',
 };
-
 export const userReducer = createReducer(
   initialUserState,
   on(userActionTypes.USER_SAVE_STATE_ACTION, (state, { user }) => user),

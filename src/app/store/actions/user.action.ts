@@ -46,6 +46,10 @@ const USER_SAVE_STATE_ACTION = createAction(
   (user: User) => ({ user })
 );
 
+const USER_LOGOUT_SUCCESS = createAction(
+  '[UserActions] AMA_APP User Logout Action Success'
+);
+
 export const userActionTypes = {
   CREATE_USER,
   UPDATE_USER,
@@ -57,4 +61,5 @@ export const userActionTypes = {
   USER_SAVE_STATE_ACTION,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_FAILURE,
+  USER_LOGOUT_SUCCESS,
 };
